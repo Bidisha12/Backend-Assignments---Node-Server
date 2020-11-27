@@ -21,7 +21,8 @@ function handleServer(req, res) {
 
    }
    else{   
-        res.statusCode = 404;
+        //res.statusCode = 404;
+        res.writeHead(200, {});
         res.end('404');
    }
 }
