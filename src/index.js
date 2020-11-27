@@ -9,18 +9,20 @@ let obj = {
 
 function handleServer(req, res) {
    if(req.url === '/welcome'){
+       
+       res.writeHead(200, {'Content-Type': 'text/plain'});
        res.write('Welcome to Dominos!');
-       res.statusCode=200;
        res.end();
 
    }else if(req.url === '/contact'){
+       
+       res.writeHead(200, {'Content-Type': 'application/json'});
        res.write(JSON.stringify(obj));
-       res.statusCode=200;
        res.end();
 
    }else{
     res.statusCode=404;
-    res.end();
+    res.end('404');
 
    }
   
