@@ -10,26 +10,22 @@ let obj = {
 function handleServer(req, res) {
    if(req.url === '/welcome'){
        res.write('Welcome to Dominos!');
-       res.write('200');
-       //res.write(JSON.stringify({status:200}));
-        res.end();
+       res.statusCode=200;
+       res.end();
 
    }else if(req.url === '/contact'){
        res.write(JSON.stringify(obj));
-      //res.write(JSON.stringify({status:200}));
-      res.write('200');
+       res.statusCode=200;
        res.end();
 
    }else{
-    //res.write(JSON.stringify({status:404}));
-   res.write('404');
+    res.statusCode=404;
     res.end();
-    
 
    }
   
 }
-//httpServer.listen(8081);
+
 const port = 8081
 httpServer.listen(port, () =>
   console.log(`listening on port: ${port}`)
